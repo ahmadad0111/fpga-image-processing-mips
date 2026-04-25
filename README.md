@@ -45,18 +45,19 @@ VGA / DVI Output
 FYP/
 │
 ├── README.md
+│
 ├── docs/
 │   ├── architecture.md
 │   ├── processor.md
 │   ├── accelerators.md
-│   └── vga_pipeline.md
+│   └── vga.md
 │
 ├── processor/
 │   │
 │   ├── assembly/
-│   │   ├── program.txt          # Assembly source code
-│   │   ├── program.bin          # Generated machine code (instruction memory)
-│   │   └── Assembler.jar       # Assembly → machine code tool
+│   │   ├── program.txt        # Assembly source code
+│   │   ├── program.bin        # Machine code (generated)
+│   │   └── Assembler.jar
 │   │
 │   ├── rtl/
 │   │   ├── MAIN.v
@@ -64,31 +65,15 @@ FYP/
 │   │   ├── vga_logic.v
 │   │   ├── vga_clk.v
 │   │   ├── RAM_88.v
-│   │   └── other_verilog_modules/
+│   │   └── modules/
 │   │
-│   ├── memory/
-│   │   ├── image.txt            # Input image data (hex)
-│   │   └── FIB.bin              # Example program/data
-│   │
-│   └── build/                   # (optional FPGA outputs)
+│   └── memory/
+│       ├── image.txt
+│       └── FIB.bin
 │
 ├── accelerators/
 │   ├── low_area/
-│   │   └── (RTL modules)
-│   │
-│   ├── high_performance/
-│   │   └── (RTL modules)
-│   │
-│   └── shared/
-│       └── (common modules if any)
-│
-├── scripts/
-│   ├── run_assembler.sh
-│   ├── simulate.tcl
-│   └── fpga_build.tcl
-│
-├── constraints/
-│   └── fpga_constraints.xdc
+│   └── high_performance/
 │
 └── .gitignore
 
