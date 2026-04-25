@@ -43,10 +43,10 @@ VGA / DVI Output
 ## 📁 Repository Structure
 
 FYP/
-│
-├── README.md
-│
-├── docs/
+|
+|-- README.md
+|
+|-- docs/
 │   ├── architecture.md
 │   ├── processor.md
 │   ├── accelerators.md
