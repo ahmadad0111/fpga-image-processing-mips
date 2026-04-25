@@ -52,30 +52,28 @@ FYP/
 │   ├── accelerators.md
 │   └── vga.md
 │
-├── processor/
+│
+├── Processor/
+│   ├── Assembly/
+│   │   ├── program.txt        (Assembly code)
+│   │   ├── Assembler.jar      (Assembler tool)
+│   │   └── program.bin        (Machine code output)
 │   │
-│   ├── assembly/
-│   │   ├── program.txt        # Assembly source code
-│   │   ├── program.bin        # Machine code (generated)
-│   │   └── Assembler.jar
-│   │
-│   ├── rtl/
-│   │   ├── MAIN.v
-│   │   ├── vgamult.v
-│   │   ├── vga_logic.v
-│   │   ├── vga_clk.v
-│   │   ├── RAM_88.v
-│   │   └── modules/
-│   │
-│   └── memory/
+│   └── processor+vga/
+│       ├── MAIN.v
+│       ├── vgamult.v
+│       ├── vga_logic.v
+│       ├── vga_clk.v
+│       ├── RAM_88.v
 │       ├── image.txt
-│       └── FIB.bin
+│       ├── FIB.bin
+│       └── other Verilog modules
 │
-├── accelerators/
-│   ├── low_area/
-│   └── high_performance/
+├── Low_Area_Accelerator/
 │
-└── .gitignore
+├── High_Performance_Accelerator/
+│
+└── README.md
 
 ---
 
