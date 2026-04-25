@@ -40,42 +40,6 @@ VGA / DVI Output
 
 ---
 
-## 📁 Repository Structure
-
-FYP/
-|
-|-- README.md
-|
-|-- docs/
-│   ├── architecture.md
-│   ├── processor.md
-│   ├── accelerators.md
-│   └── vga.md
-│
-│
-├── Processor/
-│   ├── Assembly/
-│   │   ├── program.txt        (Assembly code)
-│   │   ├── Assembler.jar      (Assembler tool)
-│   │   └── program.bin        (Machine code output)
-│   │
-│   └── processor+vga/
-│       ├── MAIN.v
-│       ├── vgamult.v
-│       ├── vga_logic.v
-│       ├── vga_clk.v
-│       ├── RAM_88.v
-│       ├── image.txt
-│       ├── FIB.bin
-│       └── other Verilog modules
-│
-├── Low_Area_Accelerator/
-│
-├── High_Performance_Accelerator/
-│
-└── README.md
-
----
 
 ## ⚙️ Build Flow
 
