@@ -1,0 +1,12 @@
+# clock signal for 50 MHz
+NET "clk" LOC = AH15 ;
+# output for LED
+NET  "OUTPUTE[7]" LOC = H18; 
+NET  "OUTPUTE[6]" LOC = L18;
+NET  "OUTPUTE[5]" LOC = G15;
+NET  "OUTPUTE[4]" LOC = AD26;
+NET  "OUTPUTE[3]" LOC = G16 ;
+NET  "OUTPUTE[2]" LOC = AD25 ;
+NET  "OUTPUTE[1]" LOC = AD24 ;
+NET  "OUTPUTE[0]" LOC = AE24 ;
+NET "reset" LOC = U25;

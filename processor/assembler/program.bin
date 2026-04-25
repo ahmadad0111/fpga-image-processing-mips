@@ -1,0 +1,269 @@
+nop
+nop
+nop
+nop
+nop
+addi $s1,1;
+addi $s2,0;
+addi $s3,100;
+addi $t3,10100;
+addi $t4,20100;
+addi $t5,30100;
+addi $s4,200;
+addi $s5,97;
+addi $s6,3;
+addi $s7,100;
+addi $s8,100;
+addi $s9,0;
+nop
+nop
+lw $A1,$s2,0;
+lw $A2,$s3,0;
+lw $A3,$s4,0;
+lw $A4,$s2,1;
+lw $A5,$s3,1;
+lw $A6,$s4,1;
+lw $A7,$s2,2;
+lw $A8,$s3,2;
+lw $A9,$s4,2;
+sgt $t1,$A1,$A2;
+bne $t1,$s1,5;
+nop
+add $t2,$A1,$z;
+add $A1,$A2,$z;
+add $A2,$t2,$z;
+sgt $t1,$A2,$A3;
+bne $t1,$s1,5;
+nop
+add $t2,$A2,$z;
+add $A2,$A3,$z;
+add $A3,$t2,$z;
+sgt $t1,$A3,$A4;
+bne $t1,$s1,5;
+nop
+add $t2,$A3,$z;
+add $A3,$A4,$z;
+add $A4,$t2,$z;
+sgt $t1,$A4,$A5;
+bne $t1,$s1,5;
+nop
+add $t2,$A4,$z;
+add $A4,$A5,$z;
+add $A5,$t2,$z;
+sgt $t1,$A5,$A6;
+bne $t1,$s1,5;
+nop
+add $t2,$A5,$z;
+add $A5,$A6,$z;
+add $A6,$t2,$z;
+sgt $t1,$A6,$A7;
+bne $t1,$s1,5;
+nop
+add $t2,$A6,$z;
+add $A6,$A7,$z;
+add $A7,$t2,$z;
+sgt $t1,$A7,$A8;
+bne $t1,$s1,5;
+nop
+add $t2,$A7,$z;
+add $A7,$A8,$z;
+add $A8,$t2,$z;
+sgt $t1,$A8,$A9;
+bne $t1,$s1,5;
+nop
+add $t2,$A8,$z;
+add $A8,$A9,$z;
+add $A9,$t2,$z;
+sgt $t1,$A1,$A2;
+bne $t1,$s1,5;
+nop
+add $t2,$A1,$z;
+add $A1,$A2,$z;
+add $A2,$t2,$z;
+sgt $t1,$A2,$A3;
+bne $t1,$s1,5;
+nop
+add $t2,$A2,$z;
+add $A2,$A3,$z;
+add $A3,$t2,$z;
+sgt $t1,$A3,$A4;
+bne $t1,$s1,5;
+nop
+add $t2,$A3,$z;
+add $A3,$A4,$z;
+add $A4,$t2,$z;
+sgt $t1,$A4,$A5;
+bne $t1,$s1,5;
+nop
+add $t2,$A4,$z;
+add $A4,$A5,$z;
+add $A5,$t2,$z;
+sgt $t1,$A5,$A6;
+bne $t1,$s1,5;
+nop
+add $t2,$A5,$z;
+add $A5,$A6,$z;
+add $A6,$t2,$z;
+sgt $t1,$A6,$A7;
+bne $t1,$s1,5;
+nop
+add $t2,$A6,$z;
+add $A6,$A7,$z;
+add $A7,$t2,$z;
+sgt $t1,$A7,$A8;
+bne $t1,$s1,5;
+nop
+add $t2,$A7,$z;
+add $A7,$A8,$z;
+add $A8,$t2,$z;
+sgt $t1,$A1,$A2;
+bne $t1,$s1,5;
+nop
+add $t2,$A1,$z;
+add $A1,$A2,$z;
+add $A2,$t2,$z;
+sgt $t1,$A2,$A3;
+bne $t1,$s1,5;
+nop
+add $t2,$A2,$z;
+add $A2,$A3,$z;
+add $A3,$t2,$z;
+sgt $t1,$A3,$A4;
+bne $t1,$s1,5;
+nop
+add $t2,$A3,$z;
+add $A3,$A4,$z;
+add $A4,$t2,$z;
+sgt $t1,$A4,$A5;
+bne $t1,$s1,5;
+nop
+add $t2,$A4,$z;
+add $A4,$A5,$z;
+add $A5,$t2,$z;
+sgt $t1,$A5,$A6;
+bne $t1,$s1,5;
+nop
+add $t2,$A5,$z;
+add $A5,$A6,$z;
+add $A6,$t2,$z;
+sgt $t1,$A6,$A7;
+bne $t1,$s1,5;
+nop
+add $t2,$A6,$z;
+add $A6,$A7,$z;
+add $A7,$t2,$z;
+sgt $t1,$A1,$A2;
+bne $t1,$s1,5;
+nop
+add $t2,$A1,$z;
+add $A1,$A2,$z;
+add $A2,$t2,$z;
+sgt $t1,$A2,$A3;
+bne $t1,$s1,5;
+nop
+add $t2,$A2,$z;
+add $A2,$A3,$z;
+add $A3,$t2,$z;
+sgt $t1,$A3,$A4;
+bne $t1,$s1,5;
+nop
+add $t2,$A3,$z;
+add $A3,$A4,$z;
+add $A4,$t2,$z;
+sgt $t1,$A4,$A5;
+bne $t1,$s1,5;
+nop
+add $t2,$A4,$z;
+add $A4,$A5,$z;
+add $A5,$t2,$z;
+sgt $t1,$A5,$A6;
+bne $t1,$s1,5;
+nop
+add $t2,$A5,$z;
+add $A5,$A6,$z;
+add $A6,$t2,$z;
+sgt $t1,$A1,$A2;
+bne $t1,$s1,5;
+nop
+add $t2,$A1,$z;
+add $A1,$A2,$z;
+add $A2,$t2,$z;
+sgt $t1,$A2,$A3;
+bne $t1,$s1,5;
+nop
+add $t2,$A2,$z;
+add $A2,$A3,$z;
+add $A3,$t2,$z;
+sgt $t1,$A3,$A4;
+bne $t1,$s1,5;
+nop
+add $t2,$A3,$z;
+add $A3,$A4,$z;
+add $A4,$t2,$z;
+sgt $t1,$A4,$A5;
+bne $t1,$s1,5;
+nop
+add $t2,$A4,$z;
+add $A4,$A5,$z;
+add $A5,$t2,$z;
+sgt $t1,$A1,$A2;
+bne $t1,$s1,5;
+nop
+add $t2,$A1,$z;
+add $A1,$A2,$z;
+add $A2,$t2,$z;
+sgt $t1,$A2,$A3;
+bne $t1,$s1,5;
+nop
+add $t2,$A2,$z;
+add $A2,$A3,$z;
+add $A3,$t2,$z;
+sgt $t1,$A3,$A4;
+bne $t1,$s1,5;
+nop
+add $t2,$A3,$z;
+add $A3,$A4,$z;
+add $A4,$t2,$z;
+sgt $t1,$A1,$A2;
+bne $t1,$s1,5;
+nop
+add $t2,$A1,$z;
+add $A1,$A2,$z;
+add $A2,$t2,$z;
+sgt $t1,$A2,$A3;
+bne $t1,$s1,5;
+nop
+add $t2,$A2,$z;
+add $A2,$A3,$z;
+add $A3,$t2,$z;
+sgt $t1,$A1,$A2;
+bne $t1,$s1,5;
+nop
+add $t2,$A1,$z;
+add $A1,$A2,$z;
+add $A2,$t2,$z;
+sw $A5,$t3,1;
+sw $A9,$t4,1;
+sw $A1,$t5,1;
+add $s2,$s2,$s1;
+add $s3,$s3,$s1;
+add $t3,$t3,$s1;
+add $t4,$t4,$s1;
+add $t5,$t5,$s1;
+add $s4,$s4,$s1;
+bne $s5,$s2,-235;
+add $s2,$s2,$s6;
+add $s3,$s3,$s6;
+add $t3,$t3,$s6;
+add $t4,$t4,$s6;
+add $t5,$t5,$s6;
+add $s4,$s4,$s6;
+add $s5,$s5,$s7;
+add $s9,$s1,$s9;
+bne $s9,$s8,-244;
+addi $s9,10;
+add $r,$s9,$z;
+addi $s9,10;
+addi $t1,11;
+bne $s9,$t1,-1;
+END
