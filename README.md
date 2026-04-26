@@ -2,73 +2,156 @@
 
 ## Overview
 
-This project implements a complete FPGA-based image processing system built around a custom-designed 32-bit pipelined MIPS processor. The system integrates instruction/data memory, image storage, VGA/DVI display pipeline, and two hardware accelerators (low-area and high-performance designs) to execute image processing directly on FPGA hardware.
+This project implements a complete FPGA-based image processing system built around a custom-designed 32-bit pipelined MIPS processor. The system integrates instruction memory, data memory, image storage, VGA/DVI display pipeline, and two specialized hardware accelerators.
 
-The system was initially developed and tested on the **Spartan 3E FPGA Kit**, which provided a basic platform for understanding FPGA design, processor execution, and VGA interfacing. The early experiments focused on simple output verification and VGA signal generation.
+The main goal is to evaluate architectural trade-offs between:
+- General-purpose pipelined processor
+- Low-area hardware accelerator
+- High-performance hardware accelerator
 
-![Spartan 3E FPGA Kit](docs/images/spartan3e.png)
-
-Due to limitations in RGB depth and processing capability, the design was migrated to the **Virtex-5 FPGA Video Starter Kit**, which supports 8-bit RGB channels and provides significantly higher resources for image processing and accelerator implementation.
-
-![Virtex 5 FPGA Kit](docs/images/virtex5.png)
-
-The main objective of this project is to evaluate FPGA-based image processing in terms of hardware utilization, execution speed, and architectural trade-offs between a general-purpose processor and specialized accelerators.
+The system performs real-time image processing on FPGA and displays results through VGA/DVI output.
 
 ---
 
+## FPGA Development Platforms
 
-## 📚 Documentation
+### Spartan 3E vs Virtex-5 Comparison
 
-Detailed design, architecture explanations, and implementation notes are available in the documentation section:
+<p align="center">
+<table>
+<tr>
+<td align="center"><b>Spartan 3E FPGA (Initial Development)</b></td>
+<td align="center"><b>Virtex-5 FPGA (Final Implementation)</b></td>
+</tr>
+<tr>
+<td><img src="docs/images/spartan3e.png" width="400"/></td>
+<td><img src="docs/images/virtex5.png" width="400"/></td>
+</tr>
+</table>
+</p>
 
-- [System Architecture](./docs/architecture.md)
-- [MIPS Processor Design](./docs/processor.md)
-- [Low & High Performance Accelerators](./docs/accelerators.md)
-- [VGA / DVI Pipeline Details](./docs/display_pipeline.md)
+### Key Differences
 
-For full documentation index:  
-👉 [Go to Docs](./docs/)
+**Spartan 3E:**
+- Limited RGB output (3-bit)
+- Used for learning FPGA and VGA interfacing
+- Lower logic and memory resources
 
-## 🔗 More Details
+**Virtex-5:**
+- 8-bit RGB support (256 color depth)
+- High-performance FPGA fabric
+- Suitable for image processing and accelerators
 
-For extended documentation, architecture diagrams, and implementation notes, visit:  
-https://github.com/your-username/fpga-image-processing-fyp
+---
 
+## System Architecture Flow
 
-## 🧠 System Flow
+<p align="center">
+  <img src="docs/images/project_flow.png" width="750"/>
+</p>
 
-Assembly → Assembler → Machine Code (.bin)  
+System flow:
+
+Assembly Code → Assembler → Machine Code (.bin)  
 ↓  
 Instruction Memory → MIPS Processor → Data Memory  
 ↓  
-Image Processing  
+Image Processing (Filters / Accelerators)  
 ↓  
 VGA / DVI Output  
 
 ---
 
+## Image Processing Filters
 
-## ⚙️ Build Flow
+### Filter Outputs
 
-### 1. Assemble Code
-Run the assembler:
+<p align="center">
+  <img src="docs/images/filters.png" width="750"/>
+</p>
 
-java -jar Assembler.jar program.bin
+Implemented filters:
+- Median Filter
+- Minimum Filter
+- Maximum Filter
 
-Output:
-factorial.bin
-
----
-
-### 2. Load Instructions
-Instruction memory loads binary:
-
-$readmemb("factorial.bin", IMEM);
+These filters operate on pixel windows using a pipelined execution model and memory-mapped image data.
 
 ---
 
-### 3. Image Memory
-Image stored in hex format inside image.txt:
+## Hardware Accelerators
+
+### Low Area Accelerator
+
+<p align="center">
+  <img src="docs/images/low_area.png" width="500"/>
+</p>
+
+- Optimized for minimal FPGA resource usage
+- Single or limited comparator design
+- Lower throughput
+- Higher latency
+
+---
+
+### High Performance Accelerator
+
+<p align="center">
+  <img src="docs/images/high_perf.png" width="500"/>
+</p>
+
+- Parallel processing architecture
+- Multiple comparators / pipeline parallelism
+- Higher FPGA utilization
+- Faster execution time
+
+---
+
+## Performance Comparison
+
+<p align="center">
+  <img src="docs/images/comparison.png" width="750"/>
+</p>
+
+| Design Type               | Area Usage | Speed | Remarks |
+|--------------------------|------------|-------|---------|
+| General MIPS Processor   | Medium     | Medium | Baseline |
+| Low Area Accelerator     | Low        | Low    | Area optimized |
+| High Performance         | High       | High   | Speed optimized |
+
+---
+
+## Simulation Results (ModelSim)
+
+<p align="center">
+  <img src="docs/images/modelsim_waveform.png" width="750"/>
+</p>
+
+### Verified in Simulation:
+- Correct pipeline execution
+- Instruction fetch/decode/execute flow
+- Memory read/write behavior
+- Filter execution correctness
+- VGA data streaming validation
+
+---
+
+## Key Components
+
+- 32-bit pipelined MIPS processor (Verilog HDL)
+- Instruction memory (IMEM)
+- Data memory (DMEM)
+- Image RAM (Block RAM IP)
+- VGA/DVI controller
+- Java-based assembler
+- Low-area hardware accelerator
+- High-performance hardware accelerator
+
+---
+
+## Image Storage Format
+
+Images are stored in hex format:
 
 80  
 7E  
@@ -76,55 +159,44 @@ Image stored in hex format inside image.txt:
 7F  
 81  
 
-Loaded into RAM using:
+Loaded into FPGA RAM using:
 
 initial $readmemh("image.txt", ram);
 
 ---
 
-## 🧠 Processing Pipeline
+## Build and Execution Flow
 
-- MIPS processor executes instructions
-- Data memory stores intermediate results
-- Image is processed pixel-by-pixel
-
-Two accelerators:
-- Low Area Accelerator → minimal FPGA resources
-- High Performance Accelerator → faster execution
-
----
-
-## 🖥️ VGA / DVI Output
-
-- vgamult.v integrates processor + display system
-- Converts processed image into pixel output
-- Works with VGA/DVI interface logic
+1. Write assembly program in text file
+2. Run Java assembler to generate machine code (.bin)
+3. Load machine code into instruction memory
+4. Load image data into RAM
+5. Synthesize design using Vivado / Xilinx ISE
+6. Program FPGA board
+7. Observe real-time VGA/DVI output
 
 ---
 
-## 🚀 Key Modules
+## Results Summary
 
-- RAM_88.v → image memory module
-- MAIN.v → processor integration
-- vga_logic.v → sync generation
-- vgamult.v → top-level system
-
----
-
-## ▶️ How to Run
-
-1. Write assembly in program.bin 
-2. Run assembler  
-3. Generate factorial.bin  
-4. Load into instruction memory  
-5. Add image.txt  
-6. Synthesize in Vivado  
-7. Program FPGA  
-8. View output on monitor  
+- Successfully implemented FPGA-based image processing pipeline
+- Verified pipelined MIPS processor functionality
+- Achieved real-time image rendering on VGA/DVI
+- Demonstrated trade-off between area and performance
+- High-performance accelerator significantly improves throughput
+- Low-area design reduces FPGA resource consumption
 
 ---
 
-## 📌 Notes
+## Conclusion
 
-- Designed for FPGA boards without native VGA
-- Uses DVI-to-VGA conversion logic
+This project demonstrates a complete FPGA-based image processing system integrating processor design, memory architecture, VGA/DVI display system, and hardware accelerators. It highlights practical trade-offs between performance and hardware resource utilization in FPGA-based system design.
+
+---
+
+## Documentation
+
+- Architecture: `docs/architecture.md`
+- Processor Design: `docs/processor.md`
+- Accelerators: `docs/accelerators.md`
+- Display Pipeline: `docs/display_pipeline.md`
