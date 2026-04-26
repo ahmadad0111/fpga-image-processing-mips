@@ -62,6 +62,33 @@ VGA / DVI Output
 
 ---
 
+## ⚙️ Build Flow 
+
+### 1. 
+Assemble Code Run the assembler: 
+java -jar Assembler.jar program.bin 
+Output: factorial.bin 
+
+--- 
+### 2. 
+Load Instructions Instruction memory loads binary:
+$readmemb("factorial.bin", IMEM); 
+
+--- 
+### 3. Image Memory 
+Image stored in hex format inside image.txt: 
+80 
+7E 
+7D 
+7F 
+81 
+
+Loaded into RAM using: 
+
+initial $readmemh("image.txt", ram); 
+
+---
+
 ## Image Processing Filters
 
 ### Filter Outputs
