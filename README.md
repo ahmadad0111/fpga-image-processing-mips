@@ -1,14 +1,21 @@
 # FPGA-Based Image Processing System with Custom MIPS Processor and Hardware Accelerators
 
-## 📌 Overview
+## Overview
 
-This project presents a complete FPGA-based image processing system built around a custom-designed MIPS processor architecture. The system integrates multiple hardware components including a processor core, memory modules, and two specialized accelerators (low-area and high-performance versions). These accelerators are designed to explore the trade-off between hardware resource utilization and computational speed.
+This project implements a complete FPGA-based image processing system built around a custom-designed 32-bit pipelined MIPS processor. The system integrates instruction/data memory, image storage, VGA/DVI display pipeline, and two hardware accelerators (low-area and high-performance designs) to execute image processing directly on FPGA hardware.
 
-The main objective of this work is not only to perform image processing on FPGA but also to evaluate architectural design choices in terms of area efficiency, processing throughput, and overall system performance. Image data is stored in on-chip memory and processed through a programmable instruction set, enabling flexible experimentation with different hardware configurations.
+The system was initially developed and tested on the **Spartan 3E FPGA Kit**, which provided a basic platform for understanding FPGA design, processor execution, and VGA interfacing. The early experiments focused on simple output verification and VGA signal generation.
 
-The processed output is displayed in real time using a VGA/DVI interface pipeline, making the system suitable for both functional verification and visual output validation.
+![Spartan 3E FPGA Kit](docs/images/spartan3e.png)
+
+Due to limitations in RGB depth and processing capability, the design was migrated to the **Virtex-5 FPGA Video Starter Kit**, which supports 8-bit RGB channels and provides significantly higher resources for image processing and accelerator implementation.
+
+![Virtex 5 FPGA Kit](docs/images/virtex5.png)
+
+The main objective of this project is to evaluate FPGA-based image processing in terms of hardware utilization, execution speed, and architectural trade-offs between a general-purpose processor and specialized accelerators.
 
 ---
+
 
 ## 📚 Documentation
 
